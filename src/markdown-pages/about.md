@@ -3,7 +3,7 @@ heading: innovative & modern template, designed with love for apps.
 subheading: Design is not just what it looks like. Design is how it works.
 path: /Our-Company
 templateKey: about-page
-title: Simple-Landing Page
+title: test
 image: /images/2.jpg
 mainpitch:
   title: Test Vision
