@@ -6,7 +6,7 @@ templateKey: about-page
 title: Simple-Landing Page
 image: /images/2.jpg
 mainpitch:
-  title: Vision
+  title: Test Vision
   description: >
     There are many variations of passages of Lorem Ipsum available, but the
     majority have suffered alteration, by injected humour, or new randomised
