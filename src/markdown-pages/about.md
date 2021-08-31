@@ -1,17 +1,20 @@
 ---
-templateKey: about-page
-path: /Our-Company
-title: Simple-Landing Page
-image: /img/6.jpg
 heading: innovative & modern template, designed with love for apps.
 subheading: Design is not just what it looks like. Design is how it works.
+path: /Our-Company
+templateKey: about-page
+title: Simple-Landing Page
+image: /images/2.jpg
 mainpitch:
   title: Vision
   description: >
-    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration, by injected humour, or new randomised words which don't look believable.
+    There are many variations of passages of Lorem Ipsum available, but the
+    majority have suffered alteration, by injected humour, or new randomised
+    words which don't look believable.
 heading2: Mission
-description: >-
-  There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration, by injected humour, or new randomised words which don't look believable.
+description: There are many variations of passages of Lorem Ipsum available, but
+  the majority have suffered alteration, by injected humour, or new randomised
+  words which don't look believable.
 intro:
   blurbs:
     - image: /img/2.jpg
