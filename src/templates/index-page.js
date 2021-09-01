@@ -1,8 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+//add stimulus for carousel images
+import { Application } from "stimulus"
+import Carousel from "stimulus-carousel"
 
 import Layout from '../components/layout'
+import Features from "../components/Features.js"
 
 export const IndexPageTemplate = ({
   image,
@@ -24,6 +28,7 @@ export const IndexPageTemplate = ({
         backgroundAttachment: `fixed`,
       }}
     >
+
       <div
         style={{
           display: 'flex',
@@ -83,6 +88,42 @@ export const IndexPageTemplate = ({
                     </h3>
                     <p>{description}</p>
                   </div>
+
+                  {/* This is container for carousel */}
+                  <div
+                    data-controller="carousel"
+                    className="swiper-container"
+                    data-carousel-options-value='{"loop": true, "navigation": { "nextEl": ".swiper-button-next", "prevEl": ".swiper-button-prev" }}'
+                  >
+                    <div className="swiper-wrapper">
+                      <div className="swiper-slide">
+                        <div className="h-64 flex justify-center items-center">
+                          <img src={"/img/2.jpg"} alt={"altImage1"} style={{height: "200px"}}></img>
+                          <p> image 1</p>
+                        </div>
+                      </div>
+                      <div className="swiper-slide">
+                        <div className="h-64 flex justify-center items-center">
+                          <img src={"/img/3.jpg"} alt={"altImage1"} style={{height: "200px"}}></img>
+                          <p> image 2</p>
+                        </div>
+                      </div>
+                      <div className="swiper-slide">
+                        <div className="h-64 flex justify-center items-center">
+                          <img src={"/img/4.jpg"} alt={"altImage1"} style={{height: "200px"}}></img>
+                          <p> image 3</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+            
+                  </div>
+
+                  <div className="column is-12">
+                    <Features gridItems={intro.blurbs}/>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -104,6 +145,10 @@ IndexPageTemplate.propTypes = {
     blurbs: PropTypes.array,
   }),
 }
+
+
+const application = Application.start()
+application.register("carousel", Carousel)
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
