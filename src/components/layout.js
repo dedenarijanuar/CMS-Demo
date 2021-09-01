@@ -41,7 +41,7 @@ const Layout = ({ children }) => {
         }}
       >
         <nav>
-        <Link to="/" style={{ textDecoration: 'none', paddingLeft: 13 }}><img src={"/images/gatsby-icon.png"} alt={"altImage1"}></img></Link>
+        <Link to="/" style={{ textDecoration: 'none', paddingLeft: 13 }}><img src={"/img/gatsby-icon.png"} alt={"altImage1"} style={{width: "50px"}}></img></Link>
         <Link to="/about" style={{ textDecoration: 'none', paddingLeft: 13 }}>OUR COMPANY</Link>
         <Link to="/business" style={{ textDecoration: 'none', paddingLeft: 13 }}>OUR BUSINESS</Link>
         <Link to="/people" style={{ textDecoration: 'none', paddingLeft: 13 }}>OUR PEOPLE</Link>
