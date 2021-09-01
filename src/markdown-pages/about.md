@@ -1,17 +1,10 @@
 ---
-<<<<<<< HEAD
 templateKey: about-page
 path: /about
 title: ABOUT US
 image: /img/6.jpg
-=======
->>>>>>> b66c2ed27829944edae5ca483a38c142cf02bc3c
 heading: innovative & modern template, designed with love for apps.
 subheading: Design is not just what it looks like. Design is how it works.
-path: /Our-Company
-templateKey: about-page
-title: test
-image: /images/2.jpg
 mainpitch:
   title: Test Vision
   description: >
