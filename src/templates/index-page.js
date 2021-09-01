@@ -1,80 +1,108 @@
-import React from "react"
-import { Container,Row,Col } from "react-bootstrap"
+import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { Link } from "gatsby"
-import Layout from "../components/layout"
+
+import Layout from '../components/layout'
 
 export const IndexPageTemplate = ({
-  image1,
-  altImage1,
-  image2,
-  altImage2,
+  image,
   title,
   heading,
   subheading,
+  mainpitch,
+  description,
+  intro,
 }) => (
-
   <div>
-    <Container>
-    <Row>
-        <Col md={4} sm={4} xs={4} style={{ paddingRight: 20 }}>
-          <Row>
-            <Col md={6} sm={6} xs={6}>
-              <Link to="/about">
-              <img className="header-image" src={image1} alt={altImage1}/>
-              </Link>
-            </Col>
-            <Col md={6} sm={6} xs={6}>
-              <Link to="/about">
-              <img className="header-image" src={image2} alt={altImage2} />
-              </Link>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={6} sm={6} xs={6}>
-            <img className="header-image" src={image1} alt={altImage1}/>
-            </Col>
-            <Col md={6} sm={6} xs={6}>
-            <img className="header-image" src={image2} alt={altImage2}/>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={6} sm={6} xs={6}>
-            <img className="header-image" src={image1} alt={altImage1}/>
-            </Col>
-            <Col md={6} sm={6} xs={6}>
-            <img className="header-image" src={image2} alt={altImage2}/>
-            </Col>
-          </Row>
-        </Col>
-        <Col md={8} sm={8} xs={8} style={{ paddingLeft: 100 }}>
-          <Row md={8} sm={8} xs={8}>
-            <img className="header-image" src={image1} alt={altImage1}/>
-          </Row>
-          <Row md={8} sm={8} xs={8}>
-            <img className="header-image" src={image2} alt={altImage2}/>
-          </Row>
-          <Row md={8} sm={8} xs={8}>
-            <img className="header-image" src={image1} alt={altImage1}/>
-          </Row>
-          <Row md={8} sm={8} xs={8}>
-            <img className="header-image" src={image2} alt={altImage2}/>
-          </Row>
-        </Col>
-      </Row>
-    </Container>
+    <div
+      className="full-width-image margin-top-0"
+      style={{
+        backgroundImage: `url(${
+          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+        })`,
+        backgroundPosition: `top left`,
+        backgroundAttachment: `fixed`,
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          height: '150px',
+          lineHeight: '1',
+          justifyContent: 'space-around',
+          alignItems: 'left',
+          flexDirection: 'column',
+        }}
+      >
+        <h1
+          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
+          style={{
+            boxShadow:
+              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
+            backgroundColor: 'rgb(255, 68, 0)',
+            color: 'white',
+            lineHeight: '1',
+            padding: '0.25em',
+          }}
+        >
+          {title}
+        </h1>
+        <h3
+          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
+          style={{
+            boxShadow:
+              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
+            backgroundColor: 'rgb(255, 68, 0)',
+            color: 'white',
+            lineHeight: '1',
+            padding: '0.25em',
+          }}
+        >
+          {subheading}
+        </h3>
+      </div>
+    </div>
+    <section className="section section--gradient">
+      <div className="container">
+        <div className="section">
+          <div className="columns">
+            <div className="column is-10 is-offset-1">
+              <div className="content">
+                <div className="content">
+                  <div className="tile">
+                    <h1 className="title">{mainpitch.title}</h1>
+                  </div>
+                  <div className="tile">
+                    <h3 className="subtitle">{mainpitch.description}</h3>
+                  </div>
+                </div>
+                <div className="columns">
+                  <div className="column is-12">
+                    <h3 className="has-text-weight-semibold is-size-2">
+                      {heading}
+                    </h3>
+                    <p>{description}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 )
 
 IndexPageTemplate.propTypes = {
-  image1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  altImage1: PropTypes.string,
-  image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  altImage2: PropTypes.string,
+  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   heading: PropTypes.string,
-  subheading: PropTypes.string
+  subheading: PropTypes.string,
+  mainpitch: PropTypes.object,
+  description: PropTypes.string,
+  intro: PropTypes.shape({
+    blurbs: PropTypes.array,
+  }),
 }
 
 const IndexPage = ({ data }) => {
@@ -83,13 +111,13 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        image1={frontmatter.image1.image}
-        altImage1={frontmatter.image1.alt}
-        image2={frontmatter.image2.image}
-        altImage2={frontmatter.image2.alt}
+        image={frontmatter.image}
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
+        mainpitch={frontmatter.mainpitch}
+        description={frontmatter.description}
+        intro={frontmatter.intro}
       />
     </Layout>
   )
@@ -110,16 +138,34 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
-        image1 {
-          alt
-          image
-        }
-        image2 {
-          alt
-          image
+        image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
         heading
         subheading
+        mainpitch {
+          title
+          description
+        }
+        description
+        intro {
+          blurbs {
+            image {
+              childImageSharp {
+                fluid(maxWidth: 240, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            text
+          }
+          heading
+          description
+        }
       }
     }
   }

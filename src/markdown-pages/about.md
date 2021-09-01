@@ -1,7 +1,7 @@
 ---
 templateKey: about-page
-path: /Our-Company
-title: Simple-Landing Page
+path: /about
+title: ABOUT US
 image: /img/6.jpg
 heading: innovative & modern template, designed with love for apps.
 subheading: Design is not just what it looks like. Design is how it works.
