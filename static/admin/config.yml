@@ -14,11 +14,11 @@ public_folder: /images
 collections:
   - name: "product"
     label: "Product"
-    folder: "src/markdown-pages/product"
+    folder: "src/-markdown-pages/product"
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "select", option: ["product-post","business-page","people-page"]}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
