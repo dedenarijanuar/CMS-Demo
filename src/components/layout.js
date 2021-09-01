@@ -12,6 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
+import 'swiper/swiper-bundle.min.css'
 
 if (typeof window !== "undefined") {
   // eslint-disable-next-line global-require
