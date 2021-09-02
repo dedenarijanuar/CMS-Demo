@@ -40,7 +40,6 @@ collections:
           - {label: Image, name: image, widget: image}
           - {label: Heading, name: heading, widget: string}
           - {label: Subheading, name: subheading, widget: string}
-          - {label: Menu, name: menuImage, widget: object, fields: [{label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]},{label: Image4, name: image4, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]},{label: Image5, name: image5, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]},{label: Image6, name: image6, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
       - file: "src/pages/about/index.md"
         label: "OUR COMPANY"
         name: "about"
