@@ -8,6 +8,8 @@ backend:
     uploadMedia: '[skip ci] Upload “{{path}}”'
     deleteMedia: '[skip ci] Delete “{{path}}”'
 
+publish_mode: editorial_workflow
+
 media_folder: static/img
 public_folder: /images
 
@@ -46,11 +48,11 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: Title, name: title, widget: string}
           - {label: Image, name: image, widget: image}
-          - {label: Description, name: description, widget: string}
+          - {label: Description, name: description, widget: text}
           - {label: Heading, name: heading, widget: string}
           - {label: Subheading, name: subheading, widget: string}
           - {label: Mainpitch, name: mainpitch, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: text}]}
-          - {label: Heading, name: heading2, widget: string}
+          - {label: Heading2, name: heading2, widget: string}
       - file: "src/pages/people/index.md"
         label: "OUR PEOPLE"
         name: "people"
