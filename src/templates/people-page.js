@@ -99,11 +99,23 @@ export const PeoplePageTemplate = ({
         main {
           image1 {
             alt
-            image
+            image {
+              childImageSharp {
+                fluid(maxWidth: 240, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           image2 {
             alt
-            image
+            image {
+              childImageSharp {
+                fluid(maxWidth: 240, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
         heading
