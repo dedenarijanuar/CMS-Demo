@@ -12,7 +12,7 @@ intro:
     - image: /img/3.jpg
       text: >
         VEHICLE MAINTENANCE & TYRE SALES
-    - image: /img/tutorials.png
+    - image: /img/6.jpg
       text: >
         FUEL SALES
     - image: /img/4.jpg
