@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ProductPostTemplate } from '../../templates/product-post'
 
-const ProductPagePreview = ({ entry, widgetFor}) => {
+const ProductPostPreview = ({ entry, widgetFor}) => {
 
   return (
     <ProductPostTemplate
@@ -13,11 +13,11 @@ const ProductPagePreview = ({ entry, widgetFor}) => {
   )
 }
 
-ProductPagePreview.propTypes = {
+ProductPostPreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   widgetFor: PropTypes.func,
 }
 
-export default ProductPagePreview
+export default ProductPostPreview
