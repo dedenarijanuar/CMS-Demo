@@ -12,7 +12,6 @@ export const AboutPageTemplate = ({
   mainpitch,
   heading2,
   description,
-  intro,
 }) => (
   <div>
     <div
@@ -94,9 +93,6 @@ AboutPageTemplate.propTypes = {
   mainpitch: PropTypes.object,
   heading2: PropTypes.string,
   description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
 }
 
 const AboutPage = ({ data }) => {
@@ -112,7 +108,6 @@ const AboutPage = ({ data }) => {
         mainpitch={frontmatter.mainpitch}
         heading2={frontmatter.heading2}
         description={frontmatter.description}
-        intro={frontmatter.intro}
       />
     </Layout>
   )
@@ -148,20 +143,6 @@ export const pageQuery = graphql`
         }
         heading2
         description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
-        }
       }
     }
   }

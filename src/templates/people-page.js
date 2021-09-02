@@ -53,7 +53,6 @@ export const PeoplePageTemplate = ({
     image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     altImage2: PropTypes.string,
     title: PropTypes.string,
-    heading: PropTypes.string,
     subheading: PropTypes.string,
     subheading2: PropTypes.string,
     intro: PropTypes.shape({
@@ -72,7 +71,6 @@ export const PeoplePageTemplate = ({
           image2={frontmatter.main.image2.image}
           altImage2={frontmatter.main.image2.alt}
           title={frontmatter.title}
-          heading={frontmatter.heading}
           subheading={frontmatter.subheading}
           subheading2={frontmatter.subheading2}
           intro={frontmatter.intro}
@@ -118,7 +116,6 @@ export const PeoplePageTemplate = ({
             }
           }
         }
-        heading
         subheading
         subheading2
         intro {
