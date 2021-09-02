@@ -6,4 +6,6 @@ description: testing product
 featuredpost: true
 featuredimage: /images/4.jpg
 ---
+![](/images/4.jpg)
+
 testing product
