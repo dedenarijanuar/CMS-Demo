@@ -4,9 +4,6 @@ module.exports = {
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
-  flags: {
-    DEV_SSR: false
-  },
   plugins: [
     'gatsby-plugin-react-helmet',
     {
@@ -20,7 +17,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/markdown-pages`,
+        path: `${__dirname}/src/pages`,
         name: 'pages',
       },
     },

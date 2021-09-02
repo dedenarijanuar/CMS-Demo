@@ -4,6 +4,7 @@ import { Container,Row,Col } from "react-bootstrap"
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
+import Features from "../components/Features"
 
 export const PeoplePageTemplate = ({
     image1,
@@ -14,9 +15,11 @@ export const PeoplePageTemplate = ({
     heading,
     subheading,
     subheading2,
+    intro
   }) => (
       <div>
-          <h1>{title}</h1>
+        <div>
+        <h1>{title}</h1>
           <Container>
               <Row>
                   <Col md={6} sm={6} xs={6}>
@@ -35,6 +38,12 @@ export const PeoplePageTemplate = ({
                   </Col>
               </Row>
           </Container>
+        </div>
+        <div className="column is-12">
+          <Features gridItems={intro.blurbs}/>
+        </div>
+          
+
       </div>
   )
 
@@ -46,7 +55,10 @@ export const PeoplePageTemplate = ({
     title: PropTypes.string,
     heading: PropTypes.string,
     subheading: PropTypes.string,
-    subheading2: PropTypes.string
+    subheading2: PropTypes.string,
+    intro: PropTypes.shape({
+      blurbs: PropTypes.array,
+    }),
   }
   
   const PeoplePage = ({ data }) => {
@@ -63,6 +75,7 @@ export const PeoplePageTemplate = ({
           heading={frontmatter.heading}
           subheading={frontmatter.subheading}
           subheading2={frontmatter.subheading2}
+          intro={frontmatter.intro}
         />
       </Layout>
     )
@@ -96,6 +109,18 @@ export const PeoplePageTemplate = ({
         heading
         subheading
         subheading2
+        intro {
+          blurbs {
+            image {
+              childImageSharp {
+                fluid(maxWidth: 240, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            text
+          }
+        }
       }
     }
   }

@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import Carousel from 'react-bootstrap/Carousel';
 
 const FeatureGrid = ({ gridItems }) => (
   <div className="columns is-multiline">
-    {gridItems.map((item) => (
+    {/* {gridItems.map((item) => (
       <div key={item.text} className="column is-6">
         <section className="section">
           <h3>{item.text}</h3>
@@ -20,7 +21,14 @@ const FeatureGrid = ({ gridItems }) => (
           </div>
         </section>
       </div>
-    ))}
+    ))} */}
+    <Carousel className="full-width-md d-none d-md-block">
+      {gridItems.map(item => 
+      <Carousel.Item>
+          <PreviewCompatibleImage imageInfo={item} />
+      </Carousel.Item>
+      )}
+  </Carousel>
   </div>
 )
 

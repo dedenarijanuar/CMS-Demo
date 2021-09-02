@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Layout from '../components/layout'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/layout'
-import Carousel from '../components/Carousel.js'
 
 export const IndexPageTemplate = ({
   image,
@@ -85,11 +84,6 @@ export const IndexPageTemplate = ({
                     </h3>
                     <p>{description}</p>
                   </div>
-
-                  <div className="column is-12">
-                    <Carousel gridItems={intro.blurbs}/>
-                  </div>
-
                 </div>
               </div>
             </div>
