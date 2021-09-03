@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Layout from '../components/layout'
 import { graphql } from 'gatsby'
-
+import BackgroundVideo from '../components/BackgroundVideo'
+import Gallery from '../components/Gallery'
 
 export const IndexPageTemplate = ({
   image,
@@ -12,6 +13,8 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
+  video,
+  gallery,
 }) => (
   <div>
     <div
@@ -91,6 +94,16 @@ export const IndexPageTemplate = ({
         </div>
       </div>
     </section>
+    <section className="BackgroundVideo-section section">
+      <BackgroundVideo poster="test" videoTitle="test">
+        {video && <source src={video} type="video/mp4" />}</BackgroundVideo>
+    </section>
+    <section className="section">
+      <div className="container">
+        <h2>Our gallery component</h2>
+        <Gallery images={gallery} />
+      </div>
+    </section>
   </div>
 )
 
@@ -104,6 +117,8 @@ IndexPageTemplate.propTypes = {
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
+  video: PropTypes.string,
+  gallery: PropTypes.array,
 }
 
 const IndexPage = ({ data }) => {
@@ -119,6 +134,8 @@ const IndexPage = ({ data }) => {
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
         intro={frontmatter.intro}
+        video={frontmatter.video}
+        gallery={frontmatter.gallery}
       />
     </Layout>
   )
@@ -137,6 +154,7 @@ export default IndexPage
 export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+      ...Gallery
       frontmatter {
         title
         image {
@@ -167,6 +185,7 @@ export const pageQuery = graphql`
           heading
           description
         }
+        video
       }
     }
   }

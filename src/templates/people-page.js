@@ -99,11 +99,9 @@ export const PeoplePageTemplate = ({
         main {
           image1 {
             alt
-            image
           }
           image2 {
             alt
-            image
           }
         }
         heading
