@@ -1,19 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { IndexPageTemplate } from '../../templates/index-page'
+import { JoinPageTemplate } from '../../templates/joinus-page'
 
-const IndexPagePreview = ({ entry, getAsset }) => {
+const JoinPagePreview = ({ entry, getAsset }) => {
   const data = entry.getIn(['data']).toJS()
 
   if (data) {
     return (
-      <IndexPageTemplate
-        image={getAsset(data.image)}
+      <JoinPageTemplate
         title={data.title}
-        heading={data.heading}
         subheading={data.subheading}
-        description={data.description}
-        mainpitch={data.mainpitch || {}}
       />
     )
   } else {
@@ -21,11 +17,11 @@ const IndexPagePreview = ({ entry, getAsset }) => {
   }
 }
 
-IndexPagePreview.propTypes = {
+JoinPagePreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   getAsset: PropTypes.func,
 }
 
-export default IndexPagePreview
+export default JoinPagePreview

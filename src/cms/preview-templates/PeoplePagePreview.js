@@ -1,21 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { AboutPageTemplate } from '../../templates/about-page'
+import { PeoplePageTemplate } from '../../templates/people-page'
 
-const AboutPagePreview = ({ entry, getAsset }) => {
+const PeoplePagePreview = ({ entry, getAsset }) => {
   const data = entry.getIn(['data']).toJS()
 
   if (data) {
     return (
-      <AboutPageTemplate
-        image={getAsset(data.image)}
+      <PeoplePageTemplate
+        image1={getAsset(data.image1)}
+        image2={getAsset(data.image2)}
+        altImage1={data.altImage1}
+        altImage2={data.altImage2}
         title={data.title}
-        heading={data.heading}
         subheading={data.subheading}
-        description={data.description}
-        heading2={data.heading2}
+        subheading2={data.subheading2}
         intro={data.intro || { blurbs: [] }}
-        mainpitch={data.mainpitch || {}}
       />
     )
   } else {
@@ -23,11 +23,11 @@ const AboutPagePreview = ({ entry, getAsset }) => {
   }
 }
 
-AboutPagePreview.propTypes = {
+PeoplePagePreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   getAsset: PropTypes.func,
 }
 
-export default AboutPagePreview
+export default PeoplePagePreview
